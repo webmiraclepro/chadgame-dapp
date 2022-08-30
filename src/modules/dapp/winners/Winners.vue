@@ -16,9 +16,9 @@
             <div class="px-4 py-5 sm:p-6">
               <div class="flow-root">
                 <ul role="list" class="-mb-8">
-                  <li v-for="(event, eventIdx) in timeline" :key="event.id">
+                  <li v-for="(event, eventIdx) in history" :key="event.id">
                     <div class="relative pb-8">
-                      <span v-if="eventIdx !== timeline.length - 1" class="absolute top-6 left-6 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true" />
+                      <span v-if="eventIdx !== history.length - 1" class="absolute top-6 left-6 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true" />
                       <div class="relative flex space-x-3">
                         <div>
                           <span :class="[event.iconBackground, 'h-12 w-12 rounded-full flex items-center justify-center']">
@@ -56,6 +56,47 @@ import { CheckIcon, ThumbUpIcon, UserIcon } from '@heroicons/vue/solid'
 export default {
   name: "Winners",
   components: [CheckIcon, ThumbUpIcon, UserIcon],
+  async mounted() {
+    const lotteryContract = this.$store.state.lotteryContract;
+    this.historyData = await lotteryContract.getPastEvents(
+      'WinnerPrized', 
+      {
+        fromBlock: 0,
+        toBlock: 'latest'
+      }
+    );
+    
+    lotteryContract.events.WinnerPrized({
+      filter: {
+        value: [],
+      },
+    })
+      .on('data', (event) => {
+        this.historyData[this.historyData.length] = event;
+      })
+      .on('changed', (event) => {
+        console.log(event);
+      })
+      .on('error', console.error);
+  },
+  computed: {
+    history() {
+      const web3 = this.$store.state.web3;
+
+      return this.historyData.map((item, index) => {
+        return {
+          id: index,
+          content: web3.utils.fromWei(item?.returnValues?.ethReceived),
+          target: item?.returnValues?.winner,
+          href: '#',
+          date: '',
+          datetime: '',
+          icon: CheckIcon,
+          iconBackground: 'bg-green-500',
+        }
+      }).reverse();
+    }
+  },
   data() {
     return {
       timeline: [{
@@ -107,7 +148,8 @@ export default {
         datetime: '2020-10-04',
         icon: CheckIcon,
         iconBackground: 'bg-green-500',
-      }]
+      }],
+      historyData: []
     }
   }
 }

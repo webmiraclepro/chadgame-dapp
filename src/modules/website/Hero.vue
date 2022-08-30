@@ -1,38 +1,49 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <div class="bg-white">
+  <div>
     <header>
-      <Popover class="relative bg-white">
-        <div class="flex justify-between items-center w-full mx-auto px-4 py-6 sm:px-6 md:justify-start md:space-x-10 lg:px-8">
+      <Popover class="relative">
+        <div class="flex justify-between items-center w-full mx-auto px-6 py-12 sm:px-6 md:justify-start md:space-x-10 lg:px-24">
           <div class="flex justify-start lg:w-0 lg:flex-1">
             <a href="#">
-              <span class="sr-only">Workflow</span>
-              <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600" alt="" />
+              <span class="sr-only">ChadGame</span>
+              <logo />
             </a>
           </div>
-          <div class="-mr-2 -my-2 md:hidden">
+          <!-- <div class="-mr-2 -my-2 md:hidden">
             <PopoverButton class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
               <span class="sr-only">Open menu</span>
               <MenuIcon class="h-6 w-6" aria-hidden="true" />
             </PopoverButton>
-          </div>
-          <PopoverGroup as="nav" class="hidden md:flex space-x-10">
-            <a v-for="item in navigation" :key="item.name" :href="item.href" class="text-xl font-medium text-gray-900 hover:text-gray-900">
+          </div> -->
+          <!-- <PopoverGroup as="nav" class="hidden md:flex space-x-10">
+            <a v-for="item in navigation" :key="item.name" :href="item.href" class="text-xl font-medium text-secondary hover:text-white">
               {{ item.name }}
             </a>
-          </PopoverGroup>
-          <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-            <a href="#" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-8 py-2 border border-transparent rounded-full shadow-sm text-xl font-medium text-white bg-sky-600 hover:bg-sky-700" @click="launchDapp">Launch Dapp</a>
+          </PopoverGroup> -->
+          <div class="hidden md:flex items-center justify-end space-x-4 md:flex-1 lg:w-0">
+            <telegram-button />
+            <twitter-button />
           </div>
+          <PopoverButton class="md:hidden">
+            <svg width="36" height="25" viewBox="0 0 36 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M7.21235 24.5392H35.5028V20.7238H6.19L7.21235 24.5392ZM4.43743 14.1831H35.5028V10.3676H3.41508L4.43743 14.1831ZM1.66248 3.82686H35.5028V0.0114136H0.640137L1.66248 3.82686Z" fill="#FFAC3B"/>
+            </svg>
+          </PopoverButton>
         </div>
 
         <transition enter-active-class="duration-200 ease-out" enter-from-class="opacity-0 scale-95" enter-to-class="opacity-100 scale-100" leave-active-class="duration-100 ease-in" leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
           <PopoverPanel focus class="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
-            <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
+            <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-primary divide-y-2 divide-gray-50">
               <div class="pt-5 pb-6 px-5">
                 <div class="flex items-center justify-between">
                   <div>
-                    <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600" alt="Workflow" />
+                    <svg width="134" height="65" viewBox="0 0 134 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="93.5698" y="30.4263" width="15.6395" height="17.622" fill="#F71D67"/>
+                      <path d="M64.7716 8.81567L73.0143 24.1986H56.5289L64.7716 8.81567Z" fill="#F91D68"/>
+                      <path d="M45.3463 34.2569L53.9263 49.8018H36.7663L45.3463 34.2569Z" fill="#F91D68"/>
+                      <path d="M15.1948 21.6114H27.5845V26.5673H15.1948C11.7618 26.5673 8.83217 25.3671 6.40585 22.9666C4.00535 20.5402 2.80509 17.6106 2.80509 14.1776C2.80509 10.7446 4.00535 7.82787 6.40585 5.42736C8.83217 3.00104 11.7618 1.78788 15.1948 1.78788H27.5845V6.74377H15.1948C13.1299 6.74377 11.3746 7.4665 9.92918 8.91197C8.48371 10.3574 7.76098 12.1126 7.76098 14.1776C7.76098 16.2426 8.48371 17.9978 9.92918 19.4432C11.3746 20.8887 13.1299 21.6114 15.1948 21.6114ZM33.5641 16.6555V26.5673H28.6082V1.78788H33.5641V11.6997H48.4318V1.78788H53.3877V26.5673H48.4318V16.6555H33.5641ZM52.0496 26.5673L64.4393 0.548911L76.829 26.5673H71.2536L64.4393 12.3191L57.625 26.5673H52.0496ZM92.8365 26.5673H75.4909V1.78788H92.8365C96.2695 1.78788 99.1863 3.00104 101.587 5.42736C104.013 7.82787 105.226 10.7446 105.226 14.1776C105.226 17.6106 104.013 20.5402 101.587 22.9666C99.1863 25.3671 96.2695 26.5673 92.8365 26.5673ZM80.4468 21.6114H92.8365C94.9015 21.6114 96.6567 20.8887 98.1022 19.4432C99.5476 17.9978 100.27 16.2426 100.27 14.1776C100.27 12.1126 99.5476 10.3574 98.1022 8.91197C96.6567 7.4665 94.9015 6.74377 92.8365 6.74377H80.4468V21.6114ZM15.1948 27.7879H35.0184L32.5404 32.7438H15.1948C13.1299 32.7438 11.3746 33.4665 9.92918 34.912C8.48371 36.3574 7.76098 38.1126 7.76098 40.1776C7.76098 42.2426 8.48371 43.9978 9.92918 45.4432C11.3746 46.8887 13.1299 47.6114 15.1948 47.6114H27.8556L25.1066 42.6555H15.1948V37.6997H27.5845L42.4522 64.957H37.4963L30.6045 52.5673H15.1948C11.7618 52.5673 8.83217 51.3671 6.40585 48.9666C4.00535 46.5402 2.80509 43.6106 2.80509 40.1776C2.80509 36.7446 4.00535 33.8279 6.40585 31.4274C8.83217 29.001 11.7618 27.7879 15.1948 27.7879ZM34.2998 52.5673L46.6895 26.5489L59.0792 52.5673H53.5038L46.6895 38.3191L39.8751 52.5673H34.2998ZM62.9293 37.6997V62.4791H57.9734V27.7879H62.9293L72.8411 46.3725L82.7529 27.7879H87.7087V52.5673H82.7529V37.6997L75.319 52.5673H70.3631L62.9293 37.6997ZM130.277 42.6555H101.78V37.6997H130.277V42.6555ZM115.409 27.7879V32.7438H95.5855V47.6114H115.409V52.5673H90.6296V27.7879H115.409Z" fill="white"/>
+                    </svg>
                   </div>
                   <div class="-mr-2">
                     <PopoverButton class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -56,16 +67,14 @@
               </div>
               <div class="py-6 px-5">
                 <div class="grid grid-cols-2 gap-4">
-                  <a v-for="item in navigation" :key="item.name" :href="item.href" class="text-base font-medium text-gray-900 hover:text-gray-700">
+                  <a v-for="item in navigation" :key="item.name" :href="item.href" class="text-base font-medium text-secondary hover:text-white">
                     {{ item.name }}
                   </a>
                 </div>
                 <div class="mt-6">
-                  <a href="#" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"> Sign up </a>
-                  <p class="mt-6 text-center text-base font-medium text-gray-500">
-                    Existing customer?
-                    <a href="#" class="text-gray-900"> Sign in </a>
-                  </p>
+                  <primary-button>
+                    PRIZE DRAW DAPP
+                  </primary-button>
                 </div>
               </div>
             </div>
@@ -75,63 +84,42 @@
     </header>
 
     <main>
-      <div>
-        <!-- Hero card -->
-        <div class="relative">
-          <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100" />
-          <div class="w-full mx-auto sm:px-6 lg:px-8">
-            <div class="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
-              <div class="absolute inset-0">
-                <img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2830&q=80&sat=-100" alt="People working on laptops" />
-                <div class="absolute inset-0 bg-indigo-700 mix-blend-multiply" />
-              </div>
-              <div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
-                <h1 class="text-center text-4xl font-bold tracking-tight sm:text-5xl sm:tracking-tight lg:text-6xl lg:tracking-tight">
-                  <span class="block text-white">Best lottery on chain</span>
-                  <span class="block text-indigo-200">Ever ^_^</span>
-                </h1>
-                <p class="mt-6 max-w-lg mx-auto text-center text-xl text-indigo-200 sm:max-w-3xl">Quad Game is a project on the Binance smart chain / Ethereum network that allows users to enter into a daily prize draw simply by holding 1 Quadrillion of the $QUAD token!</p>
-                <div class="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
-                  <div class="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
-                    <a href="#" class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-indigo-50 sm:px-8"> Get started </a>
-                    <a href="#" class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-500 bg-opacity-60 hover:bg-opacity-70 sm:px-8"> Live demo </a>
-                  </div>
-                </div>
-              </div>
+      <div class="mx-auto w-full max-full px-6 lg:px-24 pt-16 sm:pb-20 text-center lg:py-48 lg:text-left">
+        <div class="lg:w-1/2 xl:pr-16">
+          <h1 class="text-4xl font-bold tracking-tight text-secondary sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
+            <span class="block xl:inline">THE ULTIMATE</span>
+            {{ ' ' }}
+            <span class="block text-white xl:inline">"IN IT TO WIN IT" PRIZE DRAW TOKEN ON THE ETHEREUM NETWORK!</span>
+          </h1>
+          <p class="mx-auto mt-3 max-w-md text-lg text-white sm:text-xl md:mt-5 md:max-w-3xl">What if you could buy a ticket to a prize draw ONE time and be entered to win every day for life!? Well, now you can with Chadgame.</p>
+          <div class="mt-10 sm:flex sm:justify-center lg:justify-start">
+            <div class="">
+              <primary-button>
+                BUY TOKENS
+              </primary-button>
             </div>
-          </div>
-        </div>
-
-        <!-- Logo cloud -->
-        <div class="bg-gray-100">
-          <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-            <p class="text-center text-base font-semibold text-gray-500">Trusted by over 5 very average small businesses</p>
-            <div class="mt-6 grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
-              <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
-                <img class="h-12" src="https://tailwindui.com/img/logos/tuple-logo-gray-400.svg" alt="Tuple" />
-              </div>
-              <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
-                <img class="h-12" src="https://tailwindui.com/img/logos/mirage-logo-gray-400.svg" alt="Mirage" />
-              </div>
-              <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
-                <img class="h-12" src="https://tailwindui.com/img/logos/statickit-logo-gray-400.svg" alt="StaticKit" />
-              </div>
-              <div class="col-span-1 flex justify-center md:col-span-2 md:col-start-2 lg:col-span-1">
-                <img class="h-12" src="https://tailwindui.com/img/logos/transistor-logo-gray-400.svg" alt="Transistor" />
-              </div>
-              <div class="col-span-2 flex justify-center md:col-span-2 md:col-start-4 lg:col-span-1">
-                <img class="h-12" src="https://tailwindui.com/img/logos/workcation-logo-gray-400.svg" alt="Workcation" />
-              </div>
+            <div class="mt-3 sm:mt-0 sm:ml-3">
+              <secondary-button>
+                JOIN TELEGRAM
+              </secondary-button>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- More main page content here... -->
+      <div class="relative pt-0 lg:pt-16 h-full w-full lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-1/2">
+        <img src="/imgs/img_hero_back.png" />
+      </div>
+      <div class="flex flex-col md:flex-row lg:flex-row justify-center items-center space-y-12 md:space-y-0 lg:space-y-0 space-x-0 md:space-x-10 lg:space-x-10 h-auto md:h-24 lg:h-24 mb-12 md:mb-0 lg:mb-0">
+        <info-card btnText="Roadmap" backImg="/imgs/img_info_back_1.png" />
+        <info-card btnText="Whitepaper" backImg="/imgs/img_info_back_2.png" />
+        <info-card btnText="Buy tokens" backImg="/imgs/img_info_back_3.png" />
+      </div>
     </main>
   </div>
 </template>
-
+<div>
+  
+</div>
 <script>
 
 import { Popover, PopoverButton, PopoverGroup, PopoverPanel } from '@headlessui/vue'
@@ -140,16 +128,24 @@ import {
   XIcon,
 } from '@heroicons/vue/outline'
 
+import PrimaryButton from '../../components/PrimaryButton.vue'
+import SecondaryButton from '../../components/SecondaryButton.vue'
+import InfoCard from '../../components/InfoCard.vue'
+import TelegramButton from '../../components/Telegrambutton.vue';
+import TwitterButton from '../../components/TwitterButton.vue';
+import Logo from '../../components/Logo.vue';
+
+
 export default {
   name: 'Hero',
   components: {
-    Popover, PopoverButton, PopoverGroup, PopoverPanel, MenuIcon, XIcon
+    Popover, PopoverButton, PopoverGroup, PopoverPanel, MenuIcon, XIcon, PrimaryButton, SecondaryButton, InfoCard, TelegramButton, TwitterButton, Logo
   },
   data(){
     return {
       navigation: [
         { name: 'About', href: '#about' },
-        { name: 'Treasury', href: '#' },
+        { name: 'How does it work', href: '#' },
         { name: 'Tokenomics', href: '#' },
         { name: 'How to buy', href: '#' },
         { name: 'Roadmap', href: '#' },
@@ -158,7 +154,6 @@ export default {
   },
   methods: {
     launchDapp() {
-      console.log('TIGER');
       this.$router.push({path:'/dapp'})
     }
   }

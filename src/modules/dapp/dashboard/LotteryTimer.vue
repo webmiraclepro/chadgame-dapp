@@ -55,7 +55,7 @@ import axios from 'axios';
 export default {
   name: "LotteryTimer",
   async mounted() {
-    const result = await axios.get(import.meta.env.VITE_API_URL + '/getPrizeTimeLeft');
+    const result = await axios.get(import.meta.env.VITE_API_URL + '/getLotteryTimeLeft');
     this.leftSecs = result.data.left;
     this.terminated = result.data.terminated;
     this.loading = false;
