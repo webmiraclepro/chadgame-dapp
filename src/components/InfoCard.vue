@@ -1,7 +1,7 @@
 <template>
     <div class="flex relative items-center justify-center">
         <img class="w-4/5 lg:w-full justify-center" :src="backImg" />
-        <div class="flex flex-row rounded-full absolute text-xl bg-white px-6 py-1 font-bold text-secondary bottom-4 left-1/2 -translate-x-1/2 bg-white">
+        <div class="flex flex-row rounded-full absolute text-xl bg-white px-6 py-1 font-bold text-secondary bottom-4 left-1/2 -translate-x-1/2 bg-white hover:cursor-pointer">
             {{btnText}}
             <div class="mt-1.5 ml-4">
                 <svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg">

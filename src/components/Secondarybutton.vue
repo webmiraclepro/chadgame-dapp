@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-row items-center font-bold text-secondary justify-center py-4 px-8 space-x-1">
+    <div class="flex flex-row items-center font-bold text-secondary justify-center py-4 px-8 space-x-1 hover:cursor-pointer">
         <slot />
         <div class="px-2">
             <svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg">

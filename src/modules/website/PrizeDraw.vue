@@ -22,7 +22,7 @@
         </p>
         <div class="mt-10 sm:flex sm:justify-center lg:justify-start">
           <div class="">
-            <primary-button>
+            <primary-button @click="launchDapp">
               PRIZE DRAW DAPP
             </primary-button>
           </div>
@@ -46,6 +46,11 @@ export default {
   name: 'PrizeDraw',
   components: {
     PrimaryButton, SecondaryButton
+  },
+  methods: {
+    launchDapp() {
+      this.$router.push({path:'/dapp'})
+    }
   }
 }
 

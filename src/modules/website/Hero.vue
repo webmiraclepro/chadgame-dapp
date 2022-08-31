@@ -21,7 +21,7 @@
               {{ item.name }}
             </a>
           </PopoverGroup> -->
-          <div class="hidden md:flex items-center justify-end space-x-4 md:flex-1 lg:w-0">
+          <div class="hidden md:flex items-center justify-end space-x-4 md:flex-1 lg:w-0 z-10">
             <telegram-button />
             <twitter-button />
           </div>
@@ -106,10 +106,10 @@
           </div>
         </div>
       </div>
-      <div class="relative pt-0 lg:pt-16 h-full w-full lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-1/2">
+      <div class="relative pt-0 lg:pt-12 z-1 h-full w-full lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-1/2">
         <img src="/imgs/img_hero_back.png" />
       </div>
-      <div class="flex flex-col md:flex-row lg:flex-row justify-center items-center space-y-12 md:space-y-0 lg:space-y-0 space-x-0 md:space-x-10 lg:space-x-10 h-auto md:h-24 lg:h-24 mb-12 md:mb-0 lg:mb-0">
+      <div class="flex flex-col md:flex-row lg:flex-row justify-center items-center space-y-12 md:space-y-0 lg:space-y-0 space-x-0 md:space-x-8 lg:space-x-8 h-auto md:h-24 lg:h-24 mb-12 md:mb-0 lg:mb-0">
         <info-card btnText="Roadmap" backImg="/imgs/img_info_back_1.png" />
         <info-card btnText="Whitepaper" backImg="/imgs/img_info_back_2.png" />
         <info-card btnText="Buy tokens" backImg="/imgs/img_info_back_3.png" />
@@ -152,10 +152,5 @@ export default {
       ]
     }
   },
-  methods: {
-    launchDapp() {
-      this.$router.push({path:'/dapp'})
-    }
-  }
 }
 </script>
