@@ -25,7 +25,7 @@ const store = createStore({
       setTimeout(() => {
         // Makes the loader smoother
         state.ready = true;
-      }, 3000);
+      }, 2000);
     },
     setChadContract(state, contract) {
       state.chadContract = contract;
@@ -44,6 +44,7 @@ const store = createStore({
 
       commit('updateWeb3', web3);
       commit('setReady');
+      console.log('TIGER');
     },
 
     async getChadContract({

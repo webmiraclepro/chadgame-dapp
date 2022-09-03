@@ -8,7 +8,7 @@
       <div class="text-center text-gray-600 w-full md:w-2/3 lg:w-1/3 text-md">
         Our roadmap is subject to change based on a variety of influential factors, be sure to check our Telegram and Twitter regularly to stay up to date.
       </div>
-      <div class="flex flex-col lg:flex-row justify-center ml-4 md:ml-24 lg:ml-24">
+      <div class="flex flex-col lg:flex-row justify-center ml-4 md:ml-18 lg:ml-18">
         <div class="justify-start space-y-4">
           <div class="text-start text-secondary font-bold text-3xl lg:text-4xl mb-8">
             Phase 1

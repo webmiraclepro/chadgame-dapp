@@ -9,13 +9,16 @@ module.exports = {
       colors: {
         primary: {
           DEFAULT: '#421B7F',
-          dark: "#421B7F",
-          light:"#421B7F" 
+          dark: "#160529",
+          medium:"#421B7F" 
         },
         secondary: {
           DEFAULT: '#FC535D',
-          light: '#FC535D'
+          light: '#f77a82'
         },
+        third: {
+          DEFAULT: '#FFAC3B'
+        }
       }
     },
   },

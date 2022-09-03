@@ -34,7 +34,7 @@
 
         <transition enter-active-class="duration-200 ease-out" enter-from-class="opacity-0 scale-95" enter-to-class="opacity-100 scale-100" leave-active-class="duration-100 ease-in" leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
           <PopoverPanel focus class="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
-            <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-primary divide-y-2 divide-gray-50">
+            <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-primary-dark divide-y-2 divide-gray-50">
               <div class="pt-5 pb-6 px-5">
                 <div class="flex items-center justify-between">
                   <div>
@@ -67,14 +67,19 @@
               </div>
               <div class="py-6 px-5">
                 <div class="grid grid-cols-2 gap-4">
-                  <a v-for="item in navigation" :key="item.name" :href="item.href" class="text-base font-medium text-secondary hover:text-white">
+                  <router-link v-for="item in navigation" :key="item.name" :to="item.href" :class="[item.current ? 'border-secondary text-secondary' : 'border-transparent text-gray-300 hover:border-gray-400 hover:text-gray-400', 'inline-flex items-center px-1 pt-1 border-b-2 text-md font-medium']" :aria-current="item.current ? 'page' : undefined">
                     {{ item.name }}
-                  </a>
+                  </router-link>
                 </div>
-                <div class="mt-6">
-                  <primary-button>
-                    PRIZE DRAW DAPP
-                  </primary-button>
+                <div class="flex mt-6 justify-center">
+                  <div class="flex flex-row w-56 rounded-full text-xl bg-white px-6 py-1 font-bold text-secondary bg-white hover:cursor-pointer hover:text-secondary-light" @click="launchDapp">
+                      LAUNCH DAPP
+                      <div class="mt-1.5 ml-4">
+                          <svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M2.63881 16.188L10.3572 8.72863L2.63881 1.26921C2.42844 1.06656 2.14618 0.955788 1.85413 0.961252C1.56209 0.966717 1.28417 1.08797 1.08153 1.29835C0.878882 1.50872 0.768108 1.79097 0.773573 2.08302C0.779037 2.37507 0.900293 2.65298 1.11067 2.85563L7.19087 8.72863L1.11066 14.6081C0.900293 14.8107 0.779037 15.0887 0.773572 15.3807C0.768108 15.6728 0.878882 15.955 1.08153 16.1654C1.28417 16.3758 1.56209 16.497 1.85413 16.5025C2.14618 16.5079 2.42844 16.3972 2.63881 16.1945L2.63881 16.188Z" fill="#FFAC3C"/>
+                          </svg>
+                      </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -152,5 +157,10 @@ export default {
       ]
     }
   },
+  methods: {
+    launchDapp() {
+      this.$router.push({path:'/dapp'})
+    }
+  }
 }
 </script>

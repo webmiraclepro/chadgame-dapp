@@ -1,9 +1,13 @@
 <template>
   <transition name="fade" appear mode="out-in">
-    <div v-if="progress < 100" class="loader-container justify-center flex items-center">
-      <div>
-        <h1 class="text-center mt-8 font-display">{{progress}}%</h1>
+    <div v-if="progress < 100" class="loader-container justify-center flex flex-col items-center">
+      <img src="/imgs/img_vector.png" />
+      <div class="w-36 bg-primary-dark rounded-full h-2.5 mb-4 -ml-6 -mt-4">
+        <div class="bg-third h-2.5 rounded-full" :style="'width:' + progress + '%'"></div>
       </div>
+      <!-- <div>
+        <div class="text-center text-3xl text-third -ml-3 -mt-5 font-display">{{progress}}%</div>
+      </div> -->
     </div>
     <div v-else-if="progress === 100">
       <slot  />
@@ -28,20 +32,23 @@ export default {
     }
   },
   async mounted(){
-    this.interval = window.setInterval( () => {
-    if ( this.progress >= 95) {
-        // When progress completes, we have to clear the interval
-        window.clearInterval(this.interval);
-    }
-    else {
-        this.progress = this.progress + 2;          
-    }
+    this.interval = window.setInterval(() => {
+      if ( this.progress >= 95) {
+          // When progress completes, we have to clear the interval
+          window.clearInterval(this.interval);
+      }
+      else {
+          this.progress = this.progress + 2;          
+      }
     }, 150);
-
-    try{  
+    if(this.ready) {
+      this.progress = 100;
+    } else {
+      try {
         this.$store.dispatch('loadWeb3');
-    } catch (e) {
-      console.error('Error, load Web3: ', e)
+      } catch (e) {
+        console.error('Error, load Web3: ', e)
+      }
     }
   },
   watch:{
@@ -58,7 +65,7 @@ export default {
 
 .loader-container {
   /*background-image: linear-gradient(200deg, #EB4F81 0%, #EB4F69 100%);*/
-  background: #EB4F81;
+  background: linear-gradient(180deg, #280A49 0%, #360E6F 100%);
   min-width: 100%;
   min-height: 100vh;
   position: fixed;
@@ -71,11 +78,7 @@ export default {
 
 
 }
-h1 {
-  color: white;
-  font-size: 38px;
-  letter-spacing: 1.2px;
-}
+
 @keyframes spin {
   from {
     transform:rotate(0deg);

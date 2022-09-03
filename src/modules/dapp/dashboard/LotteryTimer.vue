@@ -1,46 +1,52 @@
 <template>
-  <div class="bg-gray-100 pt-12 sm:pt-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl tracking-tight font-bold text-gray-900 sm:text-4xl sm:tracking-tight">Next Quad Game Ends in</h2>
-      </div>
+  <div class="flex flex-col md:flex-row lg:flex-row">
+    <div class="flex">
+      <img class="w-full md:w-3/4 lg:w-3/4" src="/imgs/img_hero_back.png" />
     </div>
-    <div class="mt-10 pb-12 bg-gray-white sm:pb-16">
-      <div class="relative">
-        <div class="absolute inset-0 h-1/2 bg-gray-white" />
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="max-w-4xl mx-auto">
-            <dl class="rounded-lg bg-white shadow-lg sm:grid sm:grid-cols-3">
-              <div class="flex flex-col border-b border-gray-100 p-6 text-center sm:border-0 sm:border-r">
-                <dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">Hours</dt>
-                <dd class="order-1 text-5xl tracking-tight font-bold text-sky-600">{{ timeLeft.hours }}</dd>
-              </div>
-              <div class="flex flex-col border-t border-b border-gray-100 p-6 text-center sm:border-0 sm:border-l sm:border-r">
-                <dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">Minues</dt>
-                <dd class="order-1 text-5xl tracking-tight font-bold text-sky-600">{{ timeLeft.mins }}</dd>
-              </div>
-              <div class="flex flex-col border-t border-gray-100 p-6 text-center sm:border-0 sm:border-l">
-                <dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">Seconds</dt>
-                <dd class="order-1 text-5xl tracking-tight font-bold text-sky-600">{{ timeLeft.secs }}</dd>
-              </div>
-            </dl>
+    <div class="pt-12 sm:pt-16 ml-0 md:-ml-56 lg:-ml-56">
+      <div class="flex justify-center md:justify-start ml-0 sm:ml-8">
+        <img src="/imgs/img_vector.png" />
+      </div>
+      <div class="max-w-4xl mx-auto text-center md:text-start ml-0 sm:ml-8">
+        <h2 class="text-3xl tracking-tight font-bold text-secondary sm:text-6xl sm:tracking-tight">Next Quad Game Ends in</h2>
+      </div>
+      <div class="mt-10 pb-12 sm:pb-16 ml-0 lg:-ml-16 md:-ml-8">
+        <div class="relative">
+          <div class="absolute inset-0 h-1/2" />
+          <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+              <dl class="rounded-lg sm:grid sm:grid-cols-3">
+                <div class="flex flex-col px-6 text-center py-6 sm:py-0 ">
+                  <dt class="order-2 mt-2 text-lg leading-6 font-medium text-white">Hours</dt>
+                  <dd class="order-1 text-7xl tracking-tight font-bold text-third">12</dd>
+                </div>
+                <div class="flex flex-col border-t border-b border-primary px-6 py-6 sm:py-0 text-center sm:border-0 sm:border-l sm:border-r">
+                  <dt class="order-2 mt-2 text-lg leading-6 font-medium text-white">Minutes</dt>
+                  <dd class="order-1 text-7xl tracking-tight font-bold text-third">56</dd>
+                </div>
+                <div class="flex flex-col py-6 sm:py-0 px-6 text-center">
+                  <dt class="order-2 mt-2 text-lg leading-6 font-medium text-white">Seconds</dt>
+                  <dd class="order-1 text-7xl tracking-tight font-bold text-third">44</dd>
+                </div>
+              </dl>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="bg-white overflow-hidden shadow-md my-8">
+  <div class="bg-primary-dark rounded-2xl overflow-hidden shadow-md my-8">
     <div class="px-4 py-5 sm:p-6">
       <div class="text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div class="font-bold tracking-tight sm:tracking-tight mb-12">
-          <span class="block my-5 pr-5 text-3xl text-gray-900 md:text-5xl sm:text-5xl">Current Prize Pot Stands at</span>
-          <span class="block px-5 text-7xl text-orange-400">$21000</span>
+          <span class="block mb-12 text-3xl text-secondary md:text-5xl sm:text-5xl">Current prize draw</span>
+          <span class="block text-7xl text-third">$<span class="text-7xl text-white">21,000</span></span>
         </div>
         <div class="mt-8 flex justify-center">
-          <div class="inline-flex rounded-md shadow">
-            <a href="#" class="px-16 inline-flex items-center justify-center px-5 py-3 border border-transparent text-3xl font-medium rounded-full text-white bg-sky-600 hover:bg-sky-700">Buy $QUAD</a>
-          </div>
+          <primary-button>
+            BUY $CHADGAME
+          </primary-button>
         </div>
       </div>    
     </div>
@@ -51,9 +57,13 @@
 <script>
 
 import axios from 'axios';
+import PrimaryButton from '../../../components/PrimaryButton.vue';
 
 export default {
   name: "LotteryTimer",
+  components: {
+    PrimaryButton
+  },
   async mounted() {
     const result = await axios.get(import.meta.env.VITE_API_URL + '/getLotteryTimeLeft');
     this.leftSecs = result.data.left;
