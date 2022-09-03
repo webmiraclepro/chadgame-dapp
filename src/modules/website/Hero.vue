@@ -46,9 +46,15 @@
                     </svg>
                   </div>
                   <div class="-mr-2">
-                    <PopoverButton class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                    <PopoverButton class="p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100">
                       <span class="sr-only">Close menu</span>
                       <XIcon class="h-6 w-6" aria-hidden="true" />
+                      <!-- <div>
+                        <svg width="40" height="40" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect x="0.523438" y="0.715576" width="139.284" height="139.284" rx="69.6422" fill="#FC535D"/>
+                          <path d="M104.987 41.6303L98.8932 35.5366L70.1658 64.264L41.4384 35.5366L35.3447 41.6303L64.0721 70.3577L35.3447 99.0851L41.4384 105.179L70.1658 76.4514L98.8932 105.179L104.987 99.0851L76.2595 70.3577L104.987 41.6303Z" fill="white"/>
+                        </svg>
+                      </div> -->
                     </PopoverButton>
                   </div>
                 </div>
@@ -66,8 +72,8 @@
                 </div>
               </div>
               <div class="py-6 px-5">
-                <div class="grid grid-cols-2 gap-4">
-                  <router-link v-for="item in navigation" :key="item.name" :to="item.href" :class="[item.current ? 'border-secondary text-secondary' : 'border-transparent text-gray-300 hover:border-gray-400 hover:text-gray-400', 'inline-flex items-center px-1 pt-1 border-b-2 text-md font-medium']" :aria-current="item.current ? 'page' : undefined">
+                <div class="flex flex-col items-center">
+                  <router-link v-for="item in navigation" :key="item.name" :to="item.href" :class="[item.current ? 'border-secondary text-secondary' : 'border-transparent text-gray-300 hover:border-gray-400 hover:text-gray-400', 'inline-flex items-center px-1 pt-1 border-b-2 text-xl font-medium']" :aria-current="item.current ? 'page' : undefined">
                     {{ item.name }}
                   </router-link>
                 </div>

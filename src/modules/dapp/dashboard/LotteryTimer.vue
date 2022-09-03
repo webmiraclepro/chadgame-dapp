@@ -18,15 +18,15 @@
               <dl class="rounded-lg sm:grid sm:grid-cols-3">
                 <div class="flex flex-col px-6 text-center py-6 sm:py-0 ">
                   <dt class="order-2 mt-2 text-lg leading-6 font-medium text-white">Hours</dt>
-                  <dd class="order-1 text-7xl tracking-tight font-bold text-third">12</dd>
+                  <dd class="order-1 text-7xl tracking-tight font-bold text-third">{{ terminated ? '-' : timeLeft.hours }}</dd>
                 </div>
                 <div class="flex flex-col border-t border-b border-primary px-6 py-6 sm:py-0 text-center sm:border-0 sm:border-l sm:border-r">
                   <dt class="order-2 mt-2 text-lg leading-6 font-medium text-white">Minutes</dt>
-                  <dd class="order-1 text-7xl tracking-tight font-bold text-third">56</dd>
+                  <dd class="order-1 text-7xl tracking-tight font-bold text-third">{{ terminated ? '-' : timeLeft.mins }}</dd>
                 </div>
                 <div class="flex flex-col py-6 sm:py-0 px-6 text-center">
                   <dt class="order-2 mt-2 text-lg leading-6 font-medium text-white">Seconds</dt>
-                  <dd class="order-1 text-7xl tracking-tight font-bold text-third">44</dd>
+                  <dd class="order-1 text-7xl tracking-tight font-bold text-third">{{ terminated ? '-' : timeLeft.secs }}</dd>
                 </div>
               </dl>
             </div>
