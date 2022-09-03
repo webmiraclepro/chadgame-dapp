@@ -139,9 +139,9 @@ import {
   XIcon,
 } from '@heroicons/vue/outline'
 
-import PrimaryButton from '../../components/PrimaryButton.vue'
-import SecondaryButton from '../../components/SecondaryButton.vue'
-import InfoCard from '../../components/InfoCard.vue'
+import PrimaryButton from '../../components/PrimaryButton.vue';
+import SecondaryButton from '../../components/SecondaryButton.vue';
+import InfoCard from '../../components/InfoCard.vue';
 import TelegramButton from '../../components/Telegrambutton.vue';
 import TwitterButton from '../../components/TwitterButton.vue';
 import Logo from '../../components/Logo.vue';
