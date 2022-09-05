@@ -3,8 +3,8 @@
   <section id="about">
     <div class="bg-white">
       <div class="mx-auto max-w-7xl px-4 sm:px-6">
-        <div class="grid grid-cols-1 lg:grid-cols-2 place-items-center">
-          <div class="my-12 md:mt-36 lg:mt-48">
+        <div class="grid grid-cols-1 lg:grid-cols-2 place-items-center py-12 md:pt-48 lg:pt-64">
+          <div class="">
             <h1 class="mx-auto text-4xl text-primary sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl text-center lg:text-start">
               <span class="block xl:inline">What is Chadgame?</span>
             </h1>
@@ -25,7 +25,7 @@
               </div>
             </div>
           </div>
-          <div class="py-4 lg:py-0 -ml-7 mt-12 lg:mt-36">
+          <div class="py-4 lg:py-0">
             <img src="/imgs/img_about_back.webp" />
           </div>
         </div>

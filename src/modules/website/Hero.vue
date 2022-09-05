@@ -84,14 +84,14 @@
 
     <main>
       <div class="mx-auto px-6 sm:px-6 md:px-6 lg:px-24">
-        <div class="grid grid-cols-1 lg:grid-cols-2">
-          <div class="text-center lg:text-start py-6 lg:pt-16 lg:pb-64">
+        <div class="grid grid-cols-1 lg:grid-cols-2 place-items-center gap-8 pb-4 md:pb-36">
+          <div class="text-center lg:text-start">
             <h1 class="text-4xl font-bold tracking-tight text-secondary sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
               <span class="block xl:inline">THE ULTIMATE</span>
               {{ ' ' }}
               <span class="block text-white xl:inline">"IN IT TO WIN IT" PRIZE DRAW TOKEN ON THE ETHEREUM NETWORK!</span>
             </h1>
-            <p class="mx-auto mt-3 max-w-md text-lg text-white sm:text-xl md:mt-5 md:max-w-3xl">What if you could buy a ticket to a prize draw ONE time and be entered to win every day for life!? Well, now you can with Chadgame.</p>
+            <p class="mt-3 text-lg text-white sm:text-xl md:mt-5 md:max-w-3xl">What if you could buy a ticket to a prize draw ONE time and be entered to win every day for life!? Well, now you can with Chadgame.</p>
             <div class="mt-10 sm:flex sm:justify-center lg:justify-start">
               <div class="">
                 <primary-button>
@@ -105,7 +105,7 @@
               </div>
             </div>
           </div>
-          <div class="items-center flex mt-0 lg:-mt-36">
+          <div class="items-center">
             <img src="/imgs/img_hero_back.webp" />
           </div>
         </div>
