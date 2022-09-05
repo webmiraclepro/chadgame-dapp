@@ -1,11 +1,11 @@
 <template>
-  <div class="flex flex-col md:flex-row lg:flex-row">
-    <div class="flex">
-      <img class="w-full md:w-3/4 lg:w-3/4" src="/imgs/img_hero_back.png" />
+  <div class="grid grid-cols-1 md:grid-cols-2 place-items-center">
+    <div class="">
+      <img src="/imgs/img_hero_back.webp" />
     </div>
-    <div class="pt-12 sm:pt-16 ml-0 md:-ml-56 lg:-ml-56">
+    <div class="pt-12 sm:pt-16">
       <div class="flex justify-center md:justify-start ml-0 sm:ml-8">
-        <img src="/imgs/img_vector.png" />
+        <img src="/imgs/img_vector.webp" />
       </div>
       <div class="max-w-4xl mx-auto text-center md:text-start ml-0 sm:ml-8">
         <h2 class="text-3xl tracking-tight font-bold text-secondary sm:text-6xl sm:tracking-tight">Next Quad Game Ends in</h2>

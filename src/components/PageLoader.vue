@@ -1,7 +1,7 @@
 <template>
   <transition name="fade" appear mode="out-in">
     <div v-if="progress < 100" class="loader-container justify-center flex flex-col items-center">
-      <img src="/imgs/img_vector.png" />
+      <img src="/imgs/img_vector.webp" />
       <div class="w-36 bg-primary-dark rounded-full h-2.5 mb-4 -ml-6 -mt-4">
         <div class="bg-third h-2.5 rounded-full" :style="'width:' + progress + '%'"></div>
       </div>
